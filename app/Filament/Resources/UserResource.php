@@ -21,6 +21,12 @@ class UserResource extends Resource
 
     protected static ?string $navigationGroup = 'Administração';
 
+    #[\Override]
+    public static function getModelLabel(): string
+    {
+        return __('User');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -31,6 +37,7 @@ class UserResource extends Resource
                     ->email()
                     ->required(),
                 Forms\Components\DateTimePicker::make('email_verified_at'),
+                
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required(),
@@ -46,6 +53,7 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email_verified_at')
+                ->label('Email Verificado em: ')
                     ->dateTime()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
