@@ -28,9 +28,9 @@ class OwnerResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                //
-            ]);
+        ->schema([
+            Forms\Components\TextInput::make('name'),
+        ]);
     }
 
     public static function table(Table $table): Table
