@@ -19,6 +19,12 @@ class PatientResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    #[\Override]
+    public static function getModelLabel(): string
+    {
+        return __('Patient');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
