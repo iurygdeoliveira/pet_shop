@@ -29,7 +29,16 @@ class PatientResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\DatePicker::make('date_of_birth')
+                ->label("Data de Nascimento")
+                ->required(),
+                Forms\Components\TextInput::make('name')
+                ->required(),
+            Forms\Components\TextInput::make('Dono')
+                ->required(),
+            Forms\Components\TextInput::make('type')
+            ->label("Tipo")
+                ->required(),
             ]);
     }
 
